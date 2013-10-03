@@ -1,0 +1,31 @@
+<section>
+    <div class="well">
+        <h2>Handle OAuth!</h2>
+
+        {% if not data.signed_in %}
+
+        <p>Clicking this button will redirect you to the Venmo OAuth login page. Once the user logs in, they will be redirected back to your app, with their access_token in the redirect url. Your app can then grab that token using the flask request module.</p>
+        <button class="btn btn-primary" ><a style="color:#fff" href="https://api.venmo.com/oauth/authorize?client_id={{data.consumer_id}}&scope=make_payments,access_profile&response_type=code">Click here to authenticate with Venmo using OAuth</a></button>
+
+        {% else %}
+        <p>You are signed in as {{data.name}}.</p>
+        <button class="btn btn-danger" ><a style="color:#fff" href="logout">Logout!</a></button>
+        <p>Sweet, now click this to make a test payment (don't worry, it uses our sandbox so no money is sent).</p>
+
+        <div class="input-group" id="payment_note_input" class="col-md-8">
+            <input id="payment_note" type="text" class="form-control" required placeholder="write a message!">
+            <span class="input-group-btn">
+                <button class="btn btn-primary" type="button" onClick="javascript:make_payment('{{data.access_token}}');">Make a POST request while staying on this page!</button>
+            </span>
+        </div>
+    </br>
+        <textarea id="make_payment_response" class="form-control" rows="3"></textarea>
+    </br>
+        <div class="input-group">
+        <button class="btn btn-primary" type="button" onClick="javascript:get_payments('{{data.access_token}}');">Get your payments</button>
+    </div>
+        </br>
+        <textarea class="form-control" id="get_payments_response" rows="10"></textarea>
+        {% endif %}
+    </div>
+</section>

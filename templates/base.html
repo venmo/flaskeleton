@@ -1,0 +1,97 @@
+<html>
+  <head>
+    <script src="http://codeorigin.jquery.com/jquery-2.0.3.min.js"></script>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script type="text/javascript">
+        /**
+
+
+
+
+        **/
+        function ajax_post() {
+            //the url you want to make the request to
+            url = "/ajax_post";
+
+            user_message = $("#message").val();
+            if (!user_message) {
+                $("#ajax_message_input").addClass("has-error");
+                return;
+            } else {
+                $("#ajax_message_input").removeClass("has-error");
+            }
+
+            $.post(url, {
+                message: user_message
+            }).done(function(response) {
+                $(".ajax_status").text(200);
+                $(".ajax_response").text(response.message);
+            }).fail(function(error) {
+                $(".ajax_status").text(error.status);
+                $(".ajax_response").text(error.message);
+            });
+        };
+
+        /**
+            An example ajax implementation with the Venmo API.
+            This makes a POST request to make a payment on Venmo.
+        **/
+        function make_payment(venmo_access_token) {
+            payment_note = $("#payment_note").val();
+            if (!payment_note) {
+                $("#payment_note_input").addClass("has-error");
+                return;
+            } else {
+                $("#payment_note_input").removeClass("has-error");
+            }
+
+            post_parameters = {
+                note:payment_note,
+                access_token:venmo_access_token
+            }
+
+            $.post("/make_payment",
+                    post_parameters).done(function(response) {
+                        $("#make_payment_response").text(JSON.stringify(response));
+                    }).fail(function(error) {
+                        $("#make_payment_response").text(error);
+                    });
+        };
+
+        /**
+            An example ajax implementation with the Venmo API.
+            This makes a GET request to get a list of your payments.
+        **/
+        function get_payments(access_token) {
+            url = "/get_payments?access_token=" + access_token;
+            $.get(url).done(function(response) {
+                $("#get_payments_response").text(JSON.stringify(response));
+            }).fail(function(error) {
+                $("#get_payments_response").text(error);
+            });
+        };
+
+        function verify_message_form_and_submit() {
+            user_message = $("#form_message_input").val()
+            if (!user_message) {
+                $("#message_input_wrapper").addClass("has-error");
+                return;
+            } else {
+                $("#message_input_wrapper").removeClass("has-error");
+                $("#message_form").submit();
+            }
+            return;
+        }
+    </script>
+  </head>
+  <body style="padding:25px">
+    <div class="container">
+        <div class="navbar navbar-default">
+                <a class="navbar-brand" href="/">Flask!</a>
+        </div>
+    {% block content %}
+    {% endblock %}
+</div>
+  </body>
+</html>

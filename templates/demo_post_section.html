@@ -1,0 +1,32 @@
+<section>
+    <div class="well">
+        <h2>Server-side POST</h2>
+        <div class="">
+            <form action="/make_post" id="message_form" method="post">
+                <div class="input-group" id="message_input_wrapper" class="col-md-8">
+                    <input type="text" name="message" required id="form_message_input" class="form-control" placeholder="write a message!">
+                    <span class="input-group-btn">
+                    <button type="button" onclick="javascript:verify_message_form_and_submit()" class="btn btn-primary">Submit this form and go to a new page</button>
+                    </span>
+                </div>
+            </br>
+            </form>
+        </div>
+        <h2>Client-side POST</h2>
+        <div class="">
+            <p>Here, we use AJAX to make a POST request in the background. That way, we don't have to go to a new page to get our response.</p>
+            <div class="input-group" id="ajax_message_input" class="col-md-8">
+            <input id="message" type="text" class="form-control" required placeholder="write a message!">
+                <span class="input-group-btn">
+                    <button class="btn btn-primary" type="button" onClick="javascript:ajax_post();">Make a POST request while staying on this page!</button>
+                </span>
+            </div>
+            <h3>Response</h3>
+            <div class="ajax_call">
+                <p>Status: <span class="ajax_status"></span></p>
+                <textarea class="ajax_response form-control" rows="3"></textarea>
+            </div>
+        </div>
+
+    </div>
+</section>
