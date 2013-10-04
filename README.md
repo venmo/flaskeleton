@@ -1,14 +1,14 @@
 Venmo OAuth Flask Example
 ===========
 
-An example server-side implementation of obtaining a long-lived access token for Venmo OAuth. 
+An example server-side implementation of obtaining a long-lived access token for Venmo OAuth.
 
 Venmo API documentation available [here](http://venmo.com/api).
 
 Setup
 -----------
 
-Install flask and requests 
+Install flask and requests
 
     pip install flask
     pip install requests
@@ -24,8 +24,9 @@ You can find your app ID and secret here:
 
 
 Clone this repo and cd into the venmo-flask directory.
-Create a constants.py file with these definitions:
+Run `python setup.py` to automatically create a constants.py file.
 
+If you choose to make a Venmo app later, fill in the constants file with this information:
 <table>
     <tr>
     <td> CONSUMER_ID </td>
@@ -40,8 +41,8 @@ Create a constants.py file with these definitions:
     <td> a random string used to encrypt your session cookies e.g. 'thisappisnice' </td>
 </table>
 
-Then run 
+Then run
 
     python main.py
-    
+
 Go to localhost:5000 in your browser, and log in with your Venmo credentials.
