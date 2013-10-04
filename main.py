@@ -64,10 +64,7 @@ def make_payment():
     the url arguments and the POST data.
     take a look at http://flask.pocoo.org/docs/quickstart/#the-request-object
     for more info.
-    """
 
-
-    """
     request.form will have all the information that the incoming post request.
     In this example, our app makes a POST request to /make_payment, and we grab
     those parameters to make a call to the Venmo payments endpoint.
@@ -87,7 +84,6 @@ def make_payment():
     }
     url = "https://sandbox-api.venmo.com/payments"
 
-
     response = requests.post(url, payload)
     data = response.json()
     return jsonify(data)
@@ -103,9 +99,20 @@ def get_payments():
 
 """
 Example app endpoint that will handle OAuth server-side authentication.
+This is the endpoint that Venmo will redirect once a user has successfully logged
+in to your Venmo app. For more information on Venmo OAuth and the whole flow, check out
+beta-developer.venmo.com/oauth.
 """
 @app.route('/oauth-authorized')
 def oauth_authorized():
+    """
+    You can use request.args to get URL arguments from a url. Another name for URL arguments
+    is a query string.
+    What is a URL argument? It's some data that is appended to the end of a url
+    that can give extra context or information. They occur at the  Here is an example URL
+    https://www.myapp.com?key=value
+
+    """
     AUTHORIZATION_CODE = request.args.get('code')
     data = {
         "client_id":CONSUMER_ID,
