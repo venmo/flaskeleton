@@ -5,8 +5,7 @@ import requests
 app = Flask(__name__)
 # comment out when you're done testing
 app.debug = True
-app.secret_key = APP_SECRET
-
+app.secret_key = APP_SECRET #a secret string that will sign your session cookies
 
 """
 This is the function that will be called when users
@@ -16,11 +15,15 @@ app.route is a function decorator. It takes a URI as an argument, and
 whenever a user requests that url, the function it decorates will get called.
 In this case, if your app was at www.myapp.com, then someone visiting
 www.myapp.com or www.myapp.com/index.html would cause the flask app to call
-the index() function.
+the index() function. For more information about the app.route decorator
+check out http://flask.pocoo.org/docs/quickstart/#routing.
 """
 @app.route('/')
 @app.route('/index.html')
 def index():
+    """
+    Sessions are
+    """
     if session.get('venmo_token'):
         data = {'name': session['venmo_username'],
             'access_token': session['venmo_token'],
@@ -61,12 +64,21 @@ def make_payment():
     the url arguments and the POST data.
     take a look at http://flask.pocoo.org/docs/quickstart/#the-request-object
     for more info.
+    """
 
 
+    """
+    request.form will have all the information that the incoming post request.
+    In this example, our app makes a POST request to /make_payment, and we grab
+    those parameters to make a call to the Venmo payments endpoint.
     """
     access_token = request.form['access_token']
     note = request.form['note']
 
+    """
+    the payload contains all the information we are going to send in our
+    post request when we make a payment with the Venmo API.
+    """
     payload = {
         "access_token":access_token,
         "note":note,
@@ -74,6 +86,8 @@ def make_payment():
         "user_id":153136
     }
     url = "https://sandbox-api.venmo.com/payments"
+
+
     response = requests.post(url, payload)
     data = response.json()
     return jsonify(data)
