@@ -17,6 +17,7 @@ jQuery documentation available [here](http://jquery.com/).
 
 Setup
 -----------
+Clone this repo to a local directory on your computer. Navigate to the directory.
 
 Install flask and requests
 
@@ -29,9 +30,9 @@ and placeholders for Venmo app credentials. These are used in "Venmo API Integra
 
 How to run
 -----------
-Go into the app main directory.
+Go into the app main directory and
 run `python main.py`
-That's all (make sure you have that constants file constants.py and you installed those libraries mentioned above)!
+That's all (make sure you have that constants file, constants.py, and you have installed those libraries mentioned above)!
 
 Venmo API Integration Example
 -----------------------------
@@ -43,16 +44,14 @@ First, if you are not signed up for Venmo, sign up for an account [here](https:/
 
 Next, login and go to: Account > Developers > [New Application](https://venmo.com/account/app/new).
 
-**Note: You must set the `Web Redirect URL` to http://localhost:5000/oauth-authorized so that Venmo properly redirects back to your app once a user has authenticated.**
+**Note: When doing local development, you must set the `Web Redirect URL` to http://localhost:5000/oauth-authorized so that Venmo properly redirects back to your app once a user has authenticated. When deploying to a cloud platform like Heroku, change the web redirect URL to the location of your Heroku app.**
 
 ![Create new application](https://dl.dropbox.com/u/800/Captured/GbalC.png)
 
 You can find your app ID and secret here:
 ![Get app credentials](https://dl.dropboxusercontent.com/s/9gysjwne1u321fa/ExampleOAuthFlaskAppCredentials.png)
 
-Run `python setup.py` to automatically create a constants.py file with dummy info.
-
-If you choose to make a Venmo app later, fill in the constants.py file with this information:
+Now, fill in the constants.py file with this information:
 <table>
     <tr>
     <td> CONSUMER_ID </td>
@@ -71,8 +70,8 @@ Then run
 
     python main.py
 
-Go to localhost:5000 in your browser, and log in with your Venmo credentials.
+Go to localhost:5000 in your browser, and log in with your Venmo credentials. 
 
-That's it
+That's it!
 ----------
 We hope you use this app as a starting off point.
