@@ -44,7 +44,7 @@ First, if you are not signed up for Venmo, sign up for an account [here](https:/
 
 Next, login and go to: Account > Developers > [New Application](https://venmo.com/account/app/new).
 
-**Note: When doing local development, you must set the `Web Redirect URL` to http://localhost:5000/oauth-authorized so that Venmo properly redirects back to your app once a user has authenticated. When deploying to a cloud platform like Heroku, change the web redirect URL to the location of your Heroku app.**
+**Note: When doing local development, you must set `Web Redirect URL` to http://localhost:5000/oauth-authorized so that Venmo properly redirects back to your app once a user has authenticated. When deploying to a cloud platform like Heroku, change the web redirect URL to the location of your Heroku app.**
 
 ![Create new application](https://dl.dropbox.com/u/800/Captured/GbalC.png)
 
@@ -59,18 +59,18 @@ Now, fill in the constants.py file with this information:
     </tr>
     <tr>
     <td> CONSUMER_SECRET </td>
-    <td> Your Venmo app secret e.g. 'E4jWCktKjvnDoIjdFwXaQuGBKPhxTDXR' </td>
+    <td> Your Venmo app secret as a string e.g. 'E4jWCktKjvnDoIjdFwXaQuGBKPhxTDXR' </td>
     </tr>
     <tr>
     <td> APP_SECRET </td>
-    <td> a random string used to encrypt your session cookies e.g. 'thisappisnice' </td>
+    <td> A random string used to encrypt your session cookies e.g. 'thisappisnice' </td>
 </table>
 
 Then run
 
     python main.py
 
-Go to localhost:5000 in your browser, and log in with your Venmo credentials. 
+Go to localhost:5000 in your browser and follow the instructions there!
 
 That's it!
 ----------
