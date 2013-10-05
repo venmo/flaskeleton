@@ -25,6 +25,7 @@ check out http://flask.pocoo.org/docs/quickstart/#routing.
 def index():
     if session.get('venmo_token'):
         data = {'name': session['venmo_username'],
+                'consumer_id': CONSUMER_ID,
             'access_token': session['venmo_token'],
             'signed_in': True}
         return render_template('index.html', data=data)
@@ -32,40 +33,6 @@ def index():
         data = {'signed_in': False,
         'consumer_id': CONSUMER_ID}
         return render_template('/index.html', data=data)
-
-"""
-Generic app endpoints that respond to HTTP post requests.
-"""
-@app.route('/make_post', methods=["POST"])
-def make_post():
-    """
-    Dummy function to plug and play!
-
-    - Want to grab the parameters from the post? Get them from
-    request.form
-    - Want to make a request to another API? use the requests module to make
-    a POST, PUT, GET or DELETE.
-    - Want to render a webpage after? use render_template. Render_template
-    takes a path to an html file and some optional data. If the html file has
-    some template code in it, the it will process that first.
-    - Want to return some json back? Use the jsonify method to render a python
-    dictionary into JSON.
-
-    In this example, we get a 'message' parameter sent by the POST request and
-    pass that into render_template. The template looks for the 'message' variable and subsitutes it
-    into the html for us. Check out /templates/make_post.html to see the template.
-    """
-    message = request.form['message']
-    return render_template('/make_post.html', message=message)
-
-@app.route('/ajax_post', methods=["POST"])
-def ajax_post():
-    message = request.form['message']
-    print request.form
-    if not message:
-        return jsonify({"message":"Please include a message!"}), 400
-    response_message = "Hey, your message was %s" % message
-    return jsonify({"message": response_message})
 
 """
 Example app endpoints to make HTTP requests to a third party API.
@@ -87,6 +54,8 @@ def make_payment():
     """
     access_token = request.form['access_token']
     note = request.form['note']
+    email = request.form['email']
+    amount = request.form['amount']
 
     """
     the payload contains all the information we are going to send in our
@@ -95,11 +64,11 @@ def make_payment():
     payload = {
         "access_token":access_token,
         "note":note,
-        "amount":.10,
-        "user_id":153136
+        "amount":amount,
+        "email":email
     }
-    url = "https://sandbox-api.venmo.com/payments"
 
+    url = "https://api.venmo.com/payments"
     response = requests.post(url, payload)
     data = response.json()
     return jsonify(data)

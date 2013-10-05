@@ -5,49 +5,43 @@
     <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
     <script type="text/javascript">
         /**
-            This is an example for making a client-side AJAX post.
-            The point of using AJAX is to make a HTTP request without having to reload the page.
-
-            Right now, this code is making a post to our Flask app's "ajax_post" url.
-        **/
-        function ajax_post() {
-            //the url you want to make the request to
-            url = "/ajax_post";
-
-            user_message = $("#message").val();
-            if (!user_message) {
-                $("#ajax_message_input").addClass("has-error");
-                return;
-            } else {
-                $("#ajax_message_input").removeClass("has-error");
-            }
-
-            $.post(url, {
-                message: user_message
-            }).done(function(response) {
-                $(".ajax_status").text(200);
-                $(".ajax_response").text(response.message);
-            }).fail(function(error) {
-                $(".ajax_status").text(error.status);
-                $(".ajax_response").text(error.message);
-            });
-        };
-
-        /**
             An example ajax implementation with the Venmo API.
             This makes a POST request to make a payment on Venmo.
         **/
         function make_payment(venmo_access_token) {
+            var num_errors = 0;
+
             payment_note = $("#payment_note").val();
             if (!payment_note) {
                 $("#payment_note_input").addClass("has-error");
-                return;
+                num_errors++;
             } else {
                 $("#payment_note_input").removeClass("has-error");
             }
 
+            payment_amount = $("#payment_amount").val();
+            if (!payment_amount) {
+                $("#payment_amount_input").addClass("has-error");
+                num_errors++;
+            } else {
+                $("#payment_amount_input").removeClass("has-error");
+            }
+
+            payment_target = $("#payment_target").val()
+            if (!payment_target) {
+                $("#payment_target_input").addClass("has-error");
+                num_errors++;
+            } else {
+                $("#payment_amount_input").removeClass("has-error");
+            }
+
+            if (num_errors) {
+                return;
+            }
             post_parameters = {
                 note:payment_note,
+                amount:payment_amount,
+                email:payment_target,
                 access_token:venmo_access_token
             }
 
@@ -71,18 +65,6 @@
                 $("#get_payments_response").text(error);
             });
         };
-
-        function verify_message_form_and_submit() {
-            user_message = $("#form_message_input").val()
-            if (!user_message) {
-                $("#message_input_wrapper").addClass("has-error");
-                return;
-            } else {
-                $("#message_input_wrapper").removeClass("has-error");
-                $("#message_form").submit();
-            }
-            return;
-        }
     </script>
   </head>
   <body style="padding:25px">
