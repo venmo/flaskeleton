@@ -55,7 +55,7 @@ Now, fill in the constants.py file with this information:
 <table>
     <tr>
     <td> CONSUMER_ID </td>
-    <td> Your Venmo app ID e.g. 1349 **NO QUOTATION MARKS** </td>
+    <td> Your Venmo app ID e.g. 1349 (do not include the quotes) </td>
     </tr>
     <tr>
     <td> CONSUMER_SECRET </td>
