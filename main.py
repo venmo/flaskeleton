@@ -21,9 +21,6 @@ check out http://flask.pocoo.org/docs/quickstart/#routing.
 @app.route('/')
 @app.route('/index.html')
 def index():
-    """
-    Sessions are
-    """
     if session.get('venmo_token'):
         data = {'name': session['venmo_username'],
             'access_token': session['venmo_token'],
@@ -39,6 +36,23 @@ Generic app endpoints that respond to HTTP post requests.
 """
 @app.route('/make_post', methods=["POST"])
 def make_post():
+    """
+    Dummy function to plug and play!
+
+    - Want to grab the parameters from the post? Get them from
+    request.form
+    - Want to make a request to another API? use the requests module to make
+    a POST, PUT, GET or DELETE.
+    - Want to render a webpage after? use render_template. Render_template
+    takes a path to an html file and some optional data. If the html file has
+    some template code in it, the it will process that first.
+    - Want to return some json back? Use the jsonify method to render a python
+    dictionary into JSON.
+
+    In this example, we get a 'message' parameter sent by the POST request and
+    pass that into render_template. The template looks for the 'message' variable and subsitutes it
+    into the html for us. Check out /templates/make_post.html to see the template.
+    """
     message = request.form['message']
     return render_template('/make_post.html', message=message)
 
@@ -108,9 +122,8 @@ def oauth_authorized():
     """
     You can use request.args to get URL arguments from a url. Another name for URL arguments
     is a query string.
-    What is a URL argument? It's some data that is appended to the end of a url
-    that can give extra context or information. They occur at the  Here is an example URL
-    https://www.myapp.com?key=value
+    What is a URL argument? It's some data that is appended to the end of a url after a '?'
+    that can give extra context or information.
 
     """
     AUTHORIZATION_CODE = request.args.get('code')
@@ -130,6 +143,10 @@ def oauth_authorized():
 
     return redirect(url_for('index'))
 
+"""
+Going to this url will delete the current session
+and redirect back to the home page.
+"""
 @app.route('/logout')
 def logout():
     session.clear()

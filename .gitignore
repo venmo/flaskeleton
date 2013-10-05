@@ -33,6 +33,4 @@ nosetests.xml
 .mr.developer.cfg
 .project
 .pydevproject
-
-#virtualenv
-/flask
+constants.py
