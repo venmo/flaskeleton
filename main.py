@@ -1,7 +1,9 @@
 from flask import Flask, request, session, render_template, jsonify, redirect, url_for
 from constants import CONSUMER_ID, CONSUMER_SECRET, APP_SECRET
 import requests
-
+"""
+This file contains all the functions and routes for our demo app.
+"""
 app = Flask(__name__)
 # comment out when you're done testing
 app.debug = True
