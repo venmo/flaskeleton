@@ -1,21 +1,19 @@
-BLAH! Flaskeleton - a plug-and-play Flask app so you can get to the fun stuff, fast.
+Flaskeleton - plug-and-play so you can get to the fun stuff, fast.
 ===============================================================================
 
-Uses Bootstrap, Jinja2 and jQuery.
+A Flask app that has everything you need to interact with an OAuth API baked in. Build your own app off of it by cloning and modifying it to your heart's desire!
 
-Includes examples for making POST requests using html forms and AJAX.
-
-Also includes an information on how to make a Venmo app and implement server-side OAuth!
+Currently uses the Venmo OAuth API as example. Also includes examples for making POST requests using html forms and AJAX. Uses Bootstrap, Jinja2 and jQuery.
 
 Venmo API documentation available [here](http://venmo.com/api).
 
-Flask documentation available [here](http://flask.pocoo.org/)
+Flask documentation available [here](http://flask.pocoo.org/).
 
-Bootstrap documentation available [here](http://getbootstrap.com/)
+Bootstrap documentation available [here](http://getbootstrapcom/).
 
-Jinja2 documentation available [here](http://jinja.pocoo.org/docs/)
+Jinja2 documentation available [here](http://jinja.pocoo.org/docs/).
 
-jQuery documentation available [here](http://jquery.com/)
+jQuery documentation available [here](http://jquery.com/).
 
 Setup
 -----------
@@ -26,14 +24,14 @@ Install flask and requests
     pip install requests
 
 Run a setup script to create a couple of useful constants for your app, include a key to encrypt your sessions
-and placeholders for Venmo app credentials.
+and placeholders for Venmo app credentials. These are used in "Venmo API Integration Example" below.
 `python setup.py`
 
 How to run
 -----------
 Go into the app main directory.
 run `python main.py`
-That's all (make sure you have that constants file and you installed those libraries mentioned above)!
+That's all (make sure you have that constants file constants.py and you installed those libraries mentioned above)!
 
 Venmo API Integration Example
 -----------------------------
