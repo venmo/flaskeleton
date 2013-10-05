@@ -2,15 +2,9 @@
 - hosts: all
   tasks:
     - name: ensure pip is installed
-      apt: pkg=python-pip state=latest
-
-    - name: install virtualenv
-      pip: name=virtualenv
-
-    - name: install virtualenvwrapper
-      pip: name=virtualenvwrapper
-
-    - template: src=templates/bashrc dest=/home/vagrant/.bashrc owner=vagrant group=vagrant mode=0644
+      apt: pkg=python-pip 
+           state=latest
+           update-cache=yes
 
     - name: ensure ntpd is at the latest version
       apt: pkg=ntp state=latest
