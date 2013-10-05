@@ -1,4 +1,4 @@
-Flaskeleton - a plug-and-play Flask app so you can get to the fun stuff, fast.
+BLAH! Flaskeleton - a plug-and-play Flask app so you can get to the fun stuff, fast.
 ===============================================================================
 
 Uses Bootstrap, Jinja2 and jQuery.
