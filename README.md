@@ -1,7 +1,5 @@
-Venmo Flask Demo App
-===========
-
-A plug-and-play Flask app so you can get to the fun stuff, fast.
+Flaskeleton - a plug-and-play Flask app so you can get to the fun stuff, fast.
+===============================================================================
 
 Uses Bootstrap, Jinja2 and jQuery.
 
@@ -37,22 +35,26 @@ Go into the app main directory.
 run `python main.py`
 That's all (make sure you have that constants file and you installed those libraries mentioned above)!
 
-Integrating Venmo
-------------------
-Create a new Venmo Application by visiting https://venmo.com/
+Venmo API Integration Example
+-----------------------------
+This app includes an example implemention of Venmo's OAuth server-side authentication. Follow these steps to get that example working!
 
-Login and go to: Account > Developers > [New Application](https://venmo.com/account/app/new).
+###Creating your Venmo app
+
+First, if you are not signed up for Venmo, sign up for an account [here](https://venmo.com/signup).
+
+Next, login and go to: Account > Developers > [New Application](https://venmo.com/account/app/new).
+
+**Note: You must set the `Web Redirect URL` to http://localhost:5000/oauth-authorized so that Venmo properly redirects back to your app once a user has authenticated.**
 
 ![Create new application](https://dl.dropbox.com/u/800/Captured/GbalC.png)
 
 You can find your app ID and secret here:
 ![Get app credentials](https://dl.dropboxusercontent.com/s/9gysjwne1u321fa/ExampleOAuthFlaskAppCredentials.png)
 
+Run `python setup.py` to automatically create a constants.py file with dummy info.
 
-Clone this repo and cd into the venmo-flask directory.
-Run `python setup.py` to automatically create a constants.py file.
-
-If you choose to make a Venmo app later, fill in the constants file with this information:
+If you choose to make a Venmo app later, fill in the constants.py file with this information:
 <table>
     <tr>
     <td> CONSUMER_ID </td>
@@ -72,3 +74,7 @@ Then run
     python main.py
 
 Go to localhost:5000 in your browser, and log in with your Venmo credentials.
+
+That's it
+----------
+We hope you use this app as a starting off point.
