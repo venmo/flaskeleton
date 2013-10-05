@@ -1,0 +1,25 @@
+[ -z "$PS1" ] && return
+
+HISTCONTROL=ignoreboth
+HISTSIZE=5000
+HISTFILESIZE=2000
+
+PS1=': \u@\h \w ; '
+
+shopt -s histappend
+shopt -s checkwinsize
+
+[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"
+
+
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+export WORKON_HOME=$HOME/.virtualenvs
+export PROJECT_HOME=$HOME/Devel
+source /usr/local/bin/virtualenvwrapper.sh
