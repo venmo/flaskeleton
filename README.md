@@ -10,9 +10,13 @@ Includes examples for making POST requests using html forms and AJAX.
 Also includes an information on how to make a Venmo app and implement server-side OAuth!
 
 Venmo API documentation available [here](http://venmo.com/api).
+
 Flask documentation available [here](http://flask.pocoo.org/)
+
 Bootstrap documentation available [here](http://getbootstrap.com/)
+
 Jinja2 documentation available [here](http://jinja.pocoo.org/docs/)
+
 jQuery documentation available [here](http://jquery.com/)
 
 Setup
