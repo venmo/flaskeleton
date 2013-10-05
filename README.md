@@ -1,9 +1,19 @@
-Venmo OAuth Flask Example
+Venmo Flask Demo App
 ===========
 
-An example server-side implementation of obtaining a long-lived access token for Venmo OAuth.
+A plug-and-play Flask app so you can get to the fun stuff, fast.
+
+Uses Bootstrap, Jinja2 and jQuery.
+
+Includes examples for making POST requests using html forms and AJAX.
+
+Also includes an information on how to make a Venmo app and implement server-side OAuth!
 
 Venmo API documentation available [here](http://venmo.com/api).
+Flask documentation available [here](http://flask.pocoo.org/)
+Bootstrap documentation available [here](http://getbootstrap.com/)
+Jinja2 documentation available [here](http://jinja.pocoo.org/docs/)
+jQuery documentation available [here](http://jquery.com/)
 
 Setup
 -----------
@@ -13,6 +23,18 @@ Install flask and requests
     pip install flask
     pip install requests
 
+Run a setup script to create a couple of useful constants for your app, include a key to encrypt your sessions
+and placeholders for Venmo app credentials.
+`python setup.py`
+
+How to run
+-----------
+Go into the app main directory.
+run `python main.py`
+That's all (make sure you have that constants file and you installed those libraries mentioned above)!
+
+Integrating Venmo
+------------------
 Create a new Venmo Application by visiting https://venmo.com/
 
 Login and go to: Account > Developers > [New Application](https://venmo.com/account/app/new).
