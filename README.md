@@ -48,9 +48,6 @@ Next, login and go to: Account > Developers > [New Application](https://venmo.co
 
 ![Create new application](https://dl.dropboxusercontent.com/s/ffo01uzr65y9kzw/GbalC.png)
 
-You can find your app ID and secret here:
-![Get app credentials](https://dl.dropboxusercontent.com/s/9gysjwne1u321fa/ExampleOAuthFlaskAppCredentials.png)
-
 Now, fill in the constants.py file with this information:
 <table>
     <tr>
