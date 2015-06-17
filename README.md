@@ -3,7 +3,7 @@ Flaskeleton - plug-and-play so you can get to the fun stuff, fast.
 
 A Flask app that has everything you need to interact with an OAuth API baked in. Build your own app off of it by cloning and modifying it to your heart's desire!
 
-Currently uses the Venmo OAuth API as example. Also includes examples for making POST requests using html forms and AJAX. Uses Bootstrap, Jinja2 and jQuery.
+Currently uses the Venmo OAuth API as example. Also includes examples for making POST requests using HTML forms and AJAX. Uses Bootstrap, Jinja2, and jQuery.
 
 Venmo API documentation available [here](http://developer.venmo.com/).
 
