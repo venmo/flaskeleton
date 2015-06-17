@@ -5,13 +5,13 @@ A Flask app that has everything you need to interact with an OAuth API baked in.
 
 Currently uses the Venmo OAuth API as example. Also includes examples for making POST requests using html forms and AJAX. Uses Bootstrap, Jinja2 and jQuery.
 
-Venmo API documentation available [here](http://venmo.com/api).
+Venmo API documentation available [here](http://developer.venmo.com/).
 
-Flask documentation available [here](http://flask.pocoo.org/).
+Flask documentation available [here](http://flask.pocoo.org/docs).
 
-Bootstrap documentation available [here](http://getbootstrapcom/).
+Bootstrap documentation available [here](http://getbootstrap.com/).
 
-Jinja2 documentation available [here](http://jinja.pocoo.org/docs/).
+Jinja2 documentation available [here](http://jinja.pocoo.org/docs/dev/).
 
 jQuery documentation available [here](http://jquery.com/).
 
